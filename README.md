@@ -32,7 +32,7 @@ Determining whether a tournament’s value was Grand Slam, Olympics, or Finals w
 
 ## Findings and Analysis
 
-I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for all of the significance tests, I use the standard α = 0.05 for Welch's t-test.
+I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. There are additional visuals and filters on there that I consider interesting for exploration. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for all of the significance tests, I use the standard α = 0.05 for Welch's t-test.
 
 Our data can be summarized as follows:
 
@@ -112,8 +112,20 @@ From this, it is clear that the very top seeds for the ATP were unusually domina
 
 Furthermore, the data above does not tell the whole story. We already have seen that best of three set matches attract more upsets, and the highest valued tournament (Grand Slam) is played using best of three for WTA and best of five for ATP. Therefore, the entirety of the WTA ranking points comes from best of three set matches whereas a significant chunk of the ATP ranking points come from the best of five set matches, meaning the rankings for the ATP should be more representative of where the player actually stands amongst the crowd. Since we observe that the overall upset frequenecy is approximately the same for both tours despite this fact, this actually points in favor of the WTA's ability to overcome the limiting format to perform.
 
+### Match Surface
+
+It is well known amongst the tennis community that the surface that a match is played on can have a large effect on players. While a fast surface like grass courts favor large servers and big hitters, a slower surface like clay favors fast movers who can slide around on the surface and get to the ball quicker. It is important to notice that hard courts are the most common surface for a pro tournament to be held on (image 1) and so therefore a player's ranking may be more indicative of their ability to play on hard courts over anything else. Regardless, image 2 demonstrates the upset frequencies on each of the four surfaces (note that carpet surfaces are not used in any professional tennis tournaments as of 2024).
+
+<img width="221" alt="Image 6" src="https://github.com/user-attachments/assets/55f8169a-5c8c-4c1e-a945-d0cfe00feb62" />
+
+<img width="271" alt="Image 4" src="https://github.com/user-attachments/assets/540e1836-8047-4484-81b0-3cd842e6dc28" />
+
+It is clear that upsets occur most frequently on carpet courts. With the current possibilities for court surface in the professional circuit, clay courts have the greatest upset frequency, at 36%, compared to grass courts at 34% and then hard courts at 32%. The difference in means between clay and hard courts is statistically significant (p ≈ 0.0003).
+
 ## Conclusions and future research
 
-As a result of these results, I come to the conclusion that the WTA and ATP tours perform nearly identical. I believe the difference in format at the Grand Slam level leads to a difference in upset frequency that will become realized as more data is added. To address the underlying claim that I aim to assess, I do not have any data which signals that the WTA players are less consistent overall than the ATP players.
+As a result of these results, I assert that there is insufficient evidence that the top seeds on the WTA tour perform worse than the ATP tours' top seeds from 2000-2024. Our analysis would be greatly enhanced by the addition of best of five set format for the Grand Slams on the WTA tour so we can have a fairer comparison. This fundamental difference limits our ability to compare the two accurately.
+
+I am confident that this data can be used to train a model to predict the performance of upsettable seeds. This is something I would definitely be interested in exploring in the future.
 
 I plan to update this data at the end of each year’s tennis circuit.
