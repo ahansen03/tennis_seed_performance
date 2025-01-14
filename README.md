@@ -9,7 +9,7 @@ The inspiration for this project comes from my experiences growing up as a tenni
 An important goal of this project is to examine differences between ATP and WTA tour seed performances in order to begin to address claims about the inconsistency about the WTA, as well as to inform conversations around the topic of changing the WTA Grand Slam match format match the ATP tour's format, whcih is best-of-five sets rather than best-of-three sets.
 
 ### Important Links
-   1. [Macro Script]()
+   1. [Macro Script](./MacroScript)
    2. [Raw Data](https://docs.google.com/spreadsheets/d/1Q-vmwI6gNoF-C_xwDSoAolvSXmiG6Af1-6gGYoAU-7I/edit?usp=sharing)
    3. [Google Colaboratory File](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing)
    4. [Expanded Data Table](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing)
