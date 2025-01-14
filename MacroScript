@@ -1,0 +1,41 @@
+Sub AdjustedSeeds()
+'
+' AdjustedSeeds Macro
+' Creates an Adjusted Seeds column based on the Seed values and withdrew column values.
+'
+    Dim ws As Worksheet
+    Dim length As Long
+    Dim currentIndex As Long
+    Dim i As Long
+
+    ' Set worksheet
+    Set ws = ActiveSheet
+
+    ' Insert "Adjusted Seed" column in column I
+    ws.Columns("I").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    ws.Cells(1, "I").Value = "Adjusted Seed" ' Header for new column
+    
+    length = ws.UsedRange.Rows.Count
+    currentIndex = 1
+
+    ' Iterate through rows
+    For i = 2 To length
+        If ws.Cells(i, "B").Value <> ws.Cells(i - 1, "B").Value Then
+        currentIndex = 1
+            If ws.Cells(i, "L").Value = "Yes" Then
+                ws.Cells(i, "I").Value = 0
+            Else
+                ws.Cells(i, "I").Value = currentIndex
+                currentIndex = currentIndex + 1
+            End If
+        Else
+            If ws.Cells(i, "L").Value = "Yes" Then
+                ws.Cells(i, "I").Value = 0
+            Else
+                ws.Cells(i, "I").Value = currentIndex
+                currentIndex = currentIndex + 1
+            End If
+        End If
+    Next i
+
+End Sub
