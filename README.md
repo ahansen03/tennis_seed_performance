@@ -14,7 +14,7 @@ An important goal of this project is to examine differences between ATP and WTA 
    3. [Google Colaboratory File](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing)
    4. [Expanded Data Table](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing)
    5. [Histogram Data Table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing)
-   6. [Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOTllMzVlODEtZTViOC00OGY5LTkwMmEtOTZkOTg5MmQ4ZjhhIiwidCI6IjhiMWY3NWQyLWIzZTktNGIzZC1hOWYyLTBiNWZhYzQ1OGE4ZCIsImMiOjN9)
+   6. [Power BI Dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d)
 
 ### Data Sources + Collection Method
 
@@ -22,7 +22,7 @@ The first step in collecting usable data for my purposes is to gather it from th
 
 Originally, I was collecting the data by hand, but this proved to be tedious and unreliable. With the help of AI tools and Python HTML readers such as BeautifulSoup, I was able to automate this process. Since the formatting is often inconsistent between these Wikipedia pages, I then screened the results afterwards to ensure the data was complete and accurate. Afterwards, I created a variable which indicated if a player withdrew before the tournament, meaning they didn't play any matches and would not provide useful data. I wrote a [macro](./MacroScript) that allowed me to find each player’s *adjusted seed*, or their ranking against all of the players who actually played in the tournament, after excluding those who withdrew beforehand. The raw data that resulted from this process can be found [here](https://docs.google.com/spreadsheets/d/1Q-vmwI6gNoF-C_xwDSoAolvSXmiG6Af1-6gGYoAU-7I/edit?usp=sharing).
 
-After collecting the raw data, I wanted to create a boolean that represents whether or not an observation was considered an “upset”. The first part of this was removing seeds which, based on my experiences following tennis, had expectations that did not meet the criteria for being susceptible to an upset. This is because even if a seeded player loses to an unseeded player, this wouldn't necessarily fit the standard idea of an upset. Ideally, if I had the betting odds for each match I would be able to better define this, but using the data I had, I developed an acceptable metric for my purposes. We say that a player in a tournament was upset if they were more than 2 wins away from reaching their expected rounds won based on their adjusted seed value. All of the intermediate steps I am glossing over here are covered in full in the [Colaboratory](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing). 
+After collecting the raw data, I wanted to create a boolean that represents whether or not an observation was considered an “upset”. The first part of this was removing seeds which, based on my experiences following tennis, had expectations that did not meet the criteria for being susceptible to an upset. This is because even if a seeded player loses to an unseeded player, this wouldn't necessarily fit the standard idea of an upset. We call the seeds that remain from this process "upsettable seeds", but for the sake of clarity I will just refer to them as "seeds" in the analysis portion. Ideally, if I had the betting odds for each match I would be able to better define this, but using the data I had, I developed an acceptable metric for my purposes. We say that a player in a tournament was upset if they were more than 2 wins away from reaching their expected rounds won based on their adjusted seed value. All of the intermediate steps I am glossing over here are covered in full in the [Colaboratory](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing). 
 
 I also created a player appearances column which allows you to see how many data points there are for that particular player, resulting in the following [expanded data set](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing). In order to easily make a histogram in Power BI, I also created a [histogram table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing) specifically for that purpose, with only one line per player. Both of these spreadsheets can be downloaded upon compiling the Google Colaboratory file.
 
@@ -32,7 +32,7 @@ Determining whether a tournament’s value was Grand Slam, Olympics, or Finals w
 
 ### Findings
 
-I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiOTllMzVlODEtZTViOC00OGY5LTkwMmEtOTZkOTg5MmQ4ZjhhIiwidCI6IjhiMWY3NWQyLWIzZTktNGIzZC1hOWYyLTBiNWZhYzQ1OGE4ZCIsImMiOjN9) that I created and will be referring to for much of this section. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for any significance tests, assume \alpha   = 0.05.
+I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for all of the significance tests, I use the standard α = 0.05.
 
 Our data can be summarized as follows:
 
@@ -53,9 +53,7 @@ With 10+ Appearances:
 | ATP  | 6631  | 0.3276 | 0.2203 |
 
 
-We run Welch’s t-test and arrive at the conclusion that the differences in average upset frequency between ATP and WTA is statistically insignificant (in both tables), so we fail to reject the hypothesis that the difference between the two is 0. 
-
-Furthermore, we can observe from the histograms and the table that the variances between ATP and WTA are approximately equal as well. In all, we observe virtually identical samples for both tours. More interesting results follow when we start filtering by match format.
+We run Welch’s t-test and arrive at the conclusion that the differences in average upset frequency between ATP and WTA is statistically insignificant (in both tables), so we fail to reject the hypothesis that the difference between the two is 0. Furthermore, we can observe from the histograms/tables that the variances for the ATP and WTA upset frequencies are approximately equal as well. In all, we observe virtually identical samples for both tours. This already helps us disprove the base claim, but there are some more interesting conclusions to be found when we break this down even further.
 
 #### Match Format
 
@@ -66,7 +64,7 @@ Furthermore, we can observe from the histograms and the table that the variances
 | Best of 3  | 12068  | 0.3501 | 0.2275 |
 | Best of 5  | 1584  | 0.2235 | 0.1736 |
 
-At a statistically significant level, the average upset frequencies between matches that are a best of 3 vs best of 5 set formats are different, with best of 3 set matches having a 35% upset rate, about 13% higher than the best of 5 set matches.
+At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), the average upset frequencies between matches that are a best of 3 vs best of 5 set formats are different, with best of 3 set matches having approximately a 35% upset rate, almost 13% higher than the best of 5 set matches, which is at approximately 22%. To compare how the tours do in best of three set matches, we will look at the difference in upset frequency outside of the Grand Slams, which is where the only best of five set matches are played.
 
 #### Tournament Value
 
@@ -79,7 +77,7 @@ If we look at only the non-Grand Slam data, we observe the following:
 | WTA  | 5026  | 0.3613 | 0.2308 |
 | ATP  | 5458  | 0.3684 | 0.2327 |
 
-The difference between the means is insignificant, hinting at the fact that outside of Grand Slams, the seeds in both tours tend to do relatively equally as well.
+The difference between the means is insignificant (p ≈ 0.45), hinting at the fact that outside of Grand Slams where both tours play the same best of three set format, the upsettable seeds in both tours tend to do relatively equally in terms of upset frequency.
 
 At the Grand Slam level, we observe the following:
 
@@ -88,7 +86,11 @@ At the Grand Slam level, we observe the following:
 | WTA  | 1584  | 0.2513 | 0.1882 |
 | ATP  | 1584  | 0.2235 | 0.1736 |
 
-Although the mean values are not statistically significantly different (p = 0.06), they are very close. However, with our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level, despite the fact that the WTA play the best of 3 set format and the ATP plays the best of 5 set format, which intuitively makes upsets more common.
+Although the means are almost 3% different, the difference between the means is insignificant (p = 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level, despite the fact that the WTA play the best of 3 set format and the ATP plays the best of 5 set format, which intuitively would make upsets more common, as a lower ranked player only has to win 2 sets rather than 3 in order to beat the higher ranked player.
+
+#### Trends over Time
+
+
 
 ### Conclusions and future research
 
