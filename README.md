@@ -133,10 +133,13 @@ Furthermore, the data above does not tell the whole story. We already have seen 
 It is well known amongst the tennis community that the surface that a match is played on can have a large effect on players. While a fast surface like grass courts favor large servers and big hitters, a slower surface like clay favors fast movers who can slide around on the surface and get to the ball quicker. It is important to notice that hard courts are the most common surface for a pro tournament to be held on (image 1) and so therefore a player's ranking may be more indicative of their ability to play on hard courts over anything else. Regardless, image 2 demonstrates the upset frequencies on each of the four surfaces (note that carpet surfaces are not used in any professional tennis tournaments as of 2024).
 
 
+
 <img width="221" alt="Image 6" src="https://github.com/user-attachments/assets/55f8169a-5c8c-4c1e-a945-d0cfe00feb62" />
 
 
+
 <img width="271" alt="Image 4" src="https://github.com/user-attachments/assets/540e1836-8047-4484-81b0-3cd842e6dc28" />
+
 
 
 It is clear that upsets occur most frequently on carpet courts. With the current possibilities for court surface in the professional circuit, clay courts have the greatest upset frequency, at 36%, compared to grass courts at 34% and then hard courts at 32%. The difference in means between clay and hard courts is statistically significant (p ≈ 0.0003).
