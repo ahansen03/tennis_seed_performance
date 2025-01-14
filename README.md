@@ -32,7 +32,7 @@ Determining whether a tournament’s value was Grand Slam, Olympics, or Finals w
 
 ## Findings and Analysis
 
-I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for all of the significance tests, I use the standard α = 0.05.
+I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for all of the significance tests, I use the standard α = 0.05 for Welch's t-test.
 
 Our data can be summarized as follows:
 
@@ -53,7 +53,7 @@ With 10+ Appearances:
 | ATP  | 6631  | 0.3276 | 0.2203 |
 
 
-We run Welch’s t-test and arrive at the conclusion that the differences in average upset frequency between ATP and WTA is statistically insignificant (in both tables), so we fail to reject the hypothesis that the difference between the two is 0. Furthermore, we can observe from the histograms/tables that the variances for the ATP and WTA upset frequencies are approximately equal as well. In all, we observe virtually identical samples for both tours. This already helps us disprove the base claim, but there are some more interesting conclusions to be found when we break this down even further.
+The difference in average upset frequency between the ATP and WTA tours generally and for the players with 10+ appearances is statistically insignificant. As a result, we cannot confidnetly make the claim that the two tours perform differently. Furthermore, we can observe from the histograms/tables that the upset frequency variances are approximately equal for both tours. This is all to say that we observe virtually identical distributions for both tours. This already gives us evidence against the base claim, but there are some more interesting conclusions to be found when we break this down even further.
 
 ### Match Format
 
@@ -90,7 +90,27 @@ Although the means are almost 3% different, the difference between the means is 
 
 ### Trends over Time
 
+<img width="711" alt="Image 5" src="https://github.com/user-attachments/assets/0cbe60de-d5bf-4022-a41f-72b3ae653188" />
 
+This image visualizes the average upset frequencies each year for both tours. From 2000-2008, we observe that the ATP's upset rate was consistently higher than the WTA's. Over this period, the ATP's average upset frequency was approximately 36.86% compared to the WTA's 26.93%, a difference of almost 10 points. After this period, it seems that the WTA's upset frequency has been higher than the ATP on average (37.04% vs 31.17% from 2009-2024). The reason for this shift is unclear, but it could have to do with the emergence of the "Big 3" on the ATP tour: Novak Djokovic, Roger Federer, and Rafael Nadal. These three were consistently dominant starting around the time of the shift, winning 38 out of 47 consecutive Grand Slams from 2009 to 2020. Andy Murray, another dominant ATP player during this time, won three grand slams and is often grouped with the Big 3 to form the "Big 4".
+
+To put it into perspective, if we consider the time period 2009-2020 and only the 1000 and Grand Slam level tournaments, we observe the following:
+
+\# of Unique Top 3 Seeds:
+   - ATP: 13
+   - WTA: 22
+
+\# of Unique Top 2 Seeds:
+   - ATP: 6
+   - WTA: 19
+
+\# of Unique 1 Seeds:
+   - ATP: 4
+   - WTA: 11
+
+From this, it is clear that the very top seeds for the ATP were unusually dominant during this period. It is my belief that both tours go through periods of strength and weakness, which may end up becoming clear as we continue to collect more data. 
+
+Furthermore, the data above does not tell the whole story. We already have seen that best of three set matches attract more upsets, and the highest valued tournament (Grand Slam) is played using best of three for WTA and best of five for ATP. Therefore, the entirety of the WTA ranking points comes from best of three set matches whereas a significant chunk of the ATP ranking points come from the best of five set matches, meaning the rankings for the ATP should be more representative of where the player actually stands amongst the crowd. Since we observe that the overall upset frequenecy is approximately the same for both tours despite this fact, this actually points in favor of the WTA's ability to overcome the limiting format to perform.
 
 ## Conclusions and future research
 
