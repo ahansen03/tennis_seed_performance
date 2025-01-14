@@ -1,6 +1,6 @@
 # Professional Tennis Seed Performance Analysis (2000-2024)
 
-### Project Overview
+## Project Overview
 
 This data analysis project aims to identify trends in the performance of professional tennis seeds in the 21st century as well as to explore several factors that might have an effect on the frequency of “upsets”.
 
@@ -8,7 +8,7 @@ The inspiration for this project comes from my experiences growing up as a tenni
 
 An important goal of this project is to examine differences between ATP and WTA tour seed performances in order to begin to address claims about the inconsistency about the WTA, as well as to inform conversations around the topic of changing the WTA Grand Slam match format match the ATP tour's format, whcih is best-of-five sets rather than best-of-three sets.
 
-### Important Links
+## Important Links
    1. [Macro Script](./MacroScript)
    2. [Raw Data](https://docs.google.com/spreadsheets/d/1Q-vmwI6gNoF-C_xwDSoAolvSXmiG6Af1-6gGYoAU-7I/edit?usp=sharing)
    3. [Google Colaboratory File](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing)
@@ -16,7 +16,7 @@ An important goal of this project is to examine differences between ATP and WTA 
    5. [Histogram Data Table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing)
    6. [Power BI Dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d)
 
-### Data Sources + Collection Method
+## Data Sources + Collection Method
 
 The first step in collecting usable data for my purposes is to gather it from the Wikipedia pages for each tennis tournament. These pages list the seeds and how well they performed in that tournament, as well as several fundamental characteristics of the tournament including surface played on, tournament value, and size of draw. 
 
@@ -26,11 +26,11 @@ After collecting the raw data, I wanted to create a boolean that represents whet
 
 I also created a player appearances column which allows you to see how many data points there are for that particular player, resulting in the following [expanded data set](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing). In order to easily make a histogram in Power BI, I also created a [histogram table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing) specifically for that purpose, with only one line per player. Both of these spreadsheets can be downloaded upon compiling the Google Colaboratory file.
 
-****Note on Tournament Values****
+### Note on Tournament Values
 
 Determining whether a tournament’s value was Grand Slam, Olympics, or Finals was fairly straightforward. It is worth noting that determining whether a tournament was a 250, 500, or 1000 level required slightly more subjectivity. For this portion, I referenced both the approximate amount of points granted to the winner of the tournament and the relative frequency of each kind of these tournaments as they are clearly defined in recent years.
 
-### Findings
+## Findings and Analysis
 
 I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). Furthermore, for all of the significance tests, I use the standard α = 0.05.
 
@@ -55,7 +55,7 @@ With 10+ Appearances:
 
 We run Welch’s t-test and arrive at the conclusion that the differences in average upset frequency between ATP and WTA is statistically insignificant (in both tables), so we fail to reject the hypothesis that the difference between the two is 0. Furthermore, we can observe from the histograms/tables that the variances for the ATP and WTA upset frequencies are approximately equal as well. In all, we observe virtually identical samples for both tours. This already helps us disprove the base claim, but there are some more interesting conclusions to be found when we break this down even further.
 
-#### Match Format
+### Match Format
 
 <img width="437" alt="Image 3" src="https://github.com/user-attachments/assets/a3b9407b-1e6a-4360-a540-e491985e0eec" />
 
@@ -66,7 +66,7 @@ We run Welch’s t-test and arrive at the conclusion that the differences in ave
 
 At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), the average upset frequencies between matches that are a best of 3 vs best of 5 set formats are different, with best of 3 set matches having approximately a 35% upset rate, almost 13% higher than the best of 5 set matches, which is at approximately 22%. To compare how the tours do in best of three set matches, we will look at the difference in upset frequency outside of the Grand Slams, which is where the only best of five set matches are played.
 
-#### Tournament Value
+### Tournament Value
 
 <img width="427" alt="Image 2" src="https://github.com/user-attachments/assets/9ccaf3f2-e188-48a5-b22c-533b1f28c48a" />
 
@@ -88,11 +88,11 @@ At the Grand Slam level, we observe the following:
 
 Although the means are almost 3% different, the difference between the means is insignificant (p = 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level, despite the fact that the WTA play the best of 3 set format and the ATP plays the best of 5 set format, which intuitively would make upsets more common, as a lower ranked player only has to win 2 sets rather than 3 in order to beat the higher ranked player.
 
-#### Trends over Time
+### Trends over Time
 
 
 
-### Conclusions and future research
+## Conclusions and future research
 
 As a result of these results, I come to the conclusion that the WTA and ATP tours perform nearly identical. I believe the difference in format at the Grand Slam level leads to a difference in upset frequency that will become realized as more data is added. To address the underlying claim that I aim to assess, I do not have any data which signals that the WTA players are less consistent overall than the ATP players.
 
