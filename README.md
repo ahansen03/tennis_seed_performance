@@ -2,11 +2,17 @@
 
 ## Background and Project Overview
 
+### What is an "upset"?
+
 In professional tennis, an "upset" is when a player that is expected to defeat their opponent easily ends up losing the match. A few notable examples of this are Roger Federer's loss to Sergiy Stakhovsky in Wimbledon 2013, Martina Navratilova's loss to Kathleen Horvath in the French Open 1983, and Rafael Nadal's loss to Robin Soderling in the French Open 2009. Every tournament one can expect to see at least one upset, if not a few. 
+
+### Tournament Values and Tours
 
 All of the examples of upsets that I just mentioned occurred during a Grand Slam, which is the highest value of professional tournament (2000 points granted to the winner's ranking). Other tournament values include 250s, 500s, and 1000s, whose value corresponds to the amount of points the winner receives. The Olympic Games, which do not currently grant points to the winner, are played every four years. There are also the "Finals", where the top ranked player at the end of the year play a tournament amongst themselves for upwards of 1500 ranking points. Typically, the Grand Slam and 1000 level tournaments have every healthy player trying to play them, whereas the others have a weaker entry list (fewer highly ranked players play them). The top 8/16/32 players (depending on the tournament value) in a tournament by ranking are called "seeds", and are usually granted a favorable draw, meaning they are positioned in the draw (or bracket) away from the other seeds and would not have to face another seed until the later rounds of the tournament.
 
 The professional tennis circuit is divided into two "tours": the WTA (or women's) tour and the ATP (or men's) tour. The main difference between the tours in terms of format is that the ATP tour plays best of five sets for all matches in a Grand Slam, whereas every other match is a best of three sets format on both tours. This means that in a Grand Slam on the ATP tour, a player has to win three sets to win a match rather than the standard two. Otherwise, the two tours play many of the same tournaments, with the same tournament values, and a very similar schedule.
+
+### Motivation nad Purpose
 
 As someone who spends a lot of time following professional tennis year-round, I often hear the sentiment that the players on the WTA tour are less consistent than the players on the ATP tour. This rhetoric is frequently heard after every surprise exit of a top ranked WTA player in a tournament. This is often followed up with discourse around the differences between women and men physically and emotionally, which can be counterproductive and unfair. 
 
@@ -14,7 +20,10 @@ I aimed to analyze whether the WTA is more inconsistent than the ATP through sta
 
 Furthermore, I believe my findings here are relevant to the discussion of whether the WTA and ATP should adopt the same Grand Slam format. This is a belief that has the support of many, most notably the founder of the WTA, Billie Jean King. King stated, "I think the women should play 3 out of 5 sets or everyone should play 2 out of 3. But if they play 3 out of 5 sets, then that means they have more content", highlighting how five-set matches create dramatic moments that captivate viewers. Moreover, it would be unfair for the top ranked men to outperform the top ranked women and gain more prize money simply because of the difference in match formats. If my analysis demonstrates this to be the case, that could help justify the need to standardize the Grand Slam match formats.
 
-## Important Links
+## Useful Links
+
+These links will all be referenced throughout my report, but they are here as well for easy navigation.
+
    1. ["Adjusted Seed" VBA Macro Script](./MacroScript): The script used to calculate adjusted seed rankings for players in Excel.
    2. [Raw Data](https://docs.google.com/spreadsheets/d/1Q-vmwI6gNoF-C_xwDSoAolvSXmiG6Af1-6gGYoAU-7I/edit?usp=sharing): The complete dataset from Wikipedia containing player performances and tournament characteristics.
    3. [Google Colaboratory File](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing): Documentation and intermediate steps of the analysis process.
@@ -24,25 +33,25 @@ Furthermore, I believe my findings here are relevant to the discussion of whethe
 
 ## Data Sources + Collection Method
 
-The first step in collecting usable data for my purposes is to gather it from the Wikipedia pages for each tennis tournament. These pages list the seeds and how well they performed in that tournament, as well as several fundamental characteristics of the tournament including surface played on, tournament value, and size of draw. 
+The specific kind of data I sought out was not available in any datasets online, so the first step in this project was to collect it myself. The data was collected from the Wikipedia archives for each professional tennis tennis tournament. These pages list the seeds and how well they performed in that tournament, as well as several fundamental characteristics of the tournament including surface played on, tournament value, and size of draw. 
 
-Originally, I was collecting the data by hand, but this proved to be tedious and unreliable. With the help of AI tools and Python HTML readers such as BeautifulSoup, I was able to automate this process. Since the formatting is often inconsistent between these Wikipedia pages, I then screened the results afterwards to ensure the data was complete and accurate. Afterwards, I created a variable which indicated if a player withdrew before the tournament, meaning they didn't play any matches and would not provide useful data. 
+Originally, I was collecting the data by hand, but this proved to be tedious and unreliable. With the help of AI tools and Python HTML readers such as BeautifulSoup, I was able to automate this process. Since the formatting is often inconsistent between these Wikipedia pages, I then screened the results afterwards to ensure the data was complete and accurate. Afterwards, I created a column which represented wether a player withdrew before the tournament, meaning they didn't play any matches and would not provide useful data. Often a player will do this if they have an unforseen injury or illness.
 
-I wrote a [macro](./MacroScript) that allowed me to find each player’s *adjusted seed*, which is their seed ranking after removing the seeds who withdrew before the tournament started. This adjustment ranks players against only active competitors. The raw data that resulted from this process can be found [here](https://docs.google.com/spreadsheets/d/1Q-vmwI6gNoF-C_xwDSoAolvSXmiG6Af1-6gGYoAU-7I/edit?usp=sharing).
+I wrote a [macro](./MacroScript) in Excel that allowed me to find each player’s *adjusted seed*, or their seed ranking after removing the seeds who withdrew prior to their first match. An adjusted seed value ranks players against only active competitors. The raw data that resulted from this process can be found [here](https://docs.google.com/spreadsheets/d/1Q-vmwI6gNoF-C_xwDSoAolvSXmiG6Af1-6gGYoAU-7I/edit?usp=sharing).
 
 ## Identifying Upsets
 
-After collecting the raw data, I wanted to create a boolean that represents whether or not an observation was considered an upset. Firstly, this meant keeping only seeds with reasonable expectations for higher performance based on tournament context, excluding those where a loss wouldn't conventionally constitute an upset. For example, if the 8 seed in a Grand Slam loses early that would generally be considered an upset, whereas the 8 seed in a 250 level tournament losing early would not be. We call the seeds that remain from this process "upsettable seeds", but for the sake of clarity I will just refer to them as "seeds" from now on. 
+After collecting the complete dataset, I wanted to create a boolean measure representing whether or not an observation was an upset. Firstly, this meant keeping only seeds with reasonable expectations for higher performance based on tournament context, excluding those where a loss wouldn't conventionally constitute an upset. For example, if the 8 seed in a Grand Slam loses early that would generally be considered an upset, whereas the 8 seed in a 250 level tournament losing early would not be. We call the seeds that remain from this process "upsettable seeds", but for the sake of clarity I will continue to refer to them as "seeds" from now on. 
 
-Without access to historical tennis betting odds, I developed an acceptable metric for what is considered to be an upset. A player in a tournament was considered upset if their performance was more than 2 wins away from reaching their expected rounds won based on their adjusted seed value. This means that the player severely underperformed, demonstrating that they could not have been beat by a player who they were not expected to beat based on ranking. The intermediate steps are documented in detail in the [Colaboratory file](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing). 
+Without access to historical tennis betting odds, I developed an acceptable metric for what generally indicates an upset occurred. A player in a tournament was considered upset if their performance was more than 2 wins away from reaching their expected rounds won based on their adjusted seed value (for example, the 1 seed is expected to win the tournament and thus all of the rounds there are, etc.). This means that the player significantly underperformed, demonstrating that they could not have been beat by a player who they were not expected to beat based on ranking. The intermediate steps are documented in detail in the [Colaboratory file](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing). 
 
-To provide additional insights, I added a player appearances column which represents how many data points there are for that particular player. The resulting [expanded data set](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing) is particularly useful for filtering Power BI visuals. In order to easily make a histogram in Power BI, I also created a [histogram-specific table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing) specifically for that purpose, with one entry per player. Both of these spreadsheets are downloadable through the Colaboratory file or Google Sheets links.
+To provide additional insights, I added a player appearances column which represents how many observations there are for that particular player in the filtered dataset. The resulting [expanded data set](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing) is particularly useful for filtering Power BI visuals. In order to easily make a histogram in Power BI, I also created a [histogram-specific table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing) specifically for that purpose, with one entry per player. Both of these spreadsheets are downloadable through the Colaboratory file or Google Sheets links.
 
 ### Note on Tournament Values
 
-Classifying tournaments as Grand Slam, Olympics, or Finals was straightforward. It is worth noting that determining whether a tournament was a 250, 500, or 1000-level required slightly more subjectivity. For this, I referenced both the approximate amount of points granted to the winner of the tournament, the relative frequency of each kind of these tournaments, and the caliber of player that typically enrolled in those tournaments.
+Classifying tournaments as Grand Slam, Olympics, or Finals was straightforward. It is worth noting that determining whether a tournament was a 250, 500, or 1000-level required slightly more subjectivity. For this, I referenced both the approximate amount of points granted to the winner of the tournament, the relative frequency of each kind of these tournaments, and the caliber of player that typically signed up for those tournaments.
 
-## Findings and Analysis
+## ATP vs WTA Analysis
 
 I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. There are additional visuals and filters on there that I consider interesting for exploration. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). 
 
@@ -50,9 +59,7 @@ I used Welch's t-test for the statistical significance tests, as the sample size
 
 Our data can be summarized as follows:
 
-
 <img width="910" alt="Image 1" src="https://github.com/user-attachments/assets/f395ee86-6ec1-41bf-9730-3050c377217b" />
-
 
 Generally:
 
@@ -78,9 +85,7 @@ As a result, we cannot make the claim that the two tours perform differently in 
 
 ### Match Format
 
-
 <img width="437" alt="Image 3" src="https://github.com/user-attachments/assets/a3b9407b-1e6a-4360-a540-e491985e0eec" />
-
 
 | Group  | n | Mean | Variance |
 | ------------- | ------------- | ------------- | ------------- |
@@ -92,46 +97,36 @@ At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), the averag
 
 ### Tournament Value
 
-
 <img width="427" alt="Image 2" src="https://github.com/user-attachments/assets/9ccaf3f2-e188-48a5-b22c-533b1f28c48a" />
 
-
 If we look at only the non-Grand Slam data, we observe the following upset frequencies for both tours:
-
 
 | Group  | n | Mean | Variance |
 | ------------- | ------------- | ------------- | ------------- |
 | WTA  | 5026  | 0.3613 | 0.2308 |
 | ATP  | 5458  | 0.3684 | 0.2327 |
 
-
 The difference between the means is insignificant (p ≈ 0.45), meaning there is no strong evidence to suggest that upset frequencies differ significantly between the seeds in both the WTA and ATP tours outside of Grand Slams.
 
 Conversely, if we look at only the Grand Slam data, we observe the following upset frequencies for both tours:
-
 
 | Group  | n | Mean | Variance |
 | ------------- | ------------- | ------------- | ------------- |
 | WTA  | 1584  | 0.2513 | 0.1882 |
 | ATP  | 1584  | 0.2235 | 0.1736 |
 
-
 Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p ≈ 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. Intuitively, the shorter best-of-3 format in WTA Grand Slams would be expected to make upsets more likely, as a lower-ranked player needs to win only two sets rather than three. However, the data does not support this hypothesis statistically.
 
 ### Trends over Time
 
-
 <img width="711" alt="Image 5" src="https://github.com/user-attachments/assets/0cbe60de-d5bf-4022-a41f-72b3ae653188" />
 
-
 This image visualizes the average upset frequencies each year for both tours, revealing notable trends over time. The time period between 2009 and 2020 is particularly significant, not only because the WTA's overall upset frequency was higher than the ATP's but also because this era saw increasing rhetoric about the perceived inconsistency of the WTA tour. Here is the data for that time period:
-
 
 | Group  | n | Mean | Variance |
 | ------------- | ------------- | ------------- | ------------- |
 | WTA  | 3211  | 0.3637 | 0.2315 |
 | ATP  | 3028  | 0.3015 | 0.2107 |
-
 
 The WTA's average upset frequency of 36.37% was significantly higher than the ATP's 30.15% (p ≈ 1.8 × 10-7), suggesting that ATP seeds were more consistent during this period. However, more information is revealed through deeper analysis of the data. By dividing players into two groups based on their total appearances (>= 30 and < 30), we uncover more detailed insights
 
@@ -142,17 +137,14 @@ Players with 30 or more appearances:
 | WTA  | 2012 (31 players) | 0.3385 | 0.2240 |
 | ATP  | 2256 (30 players) | 0.2589 | 0.1919 |
 
-
 For players with 30 or more appearances, the ATP’s upset frequency (25.89%) was significantly lower than the WTA’s (33.85%) (p ≈ 1.8 × 10-7). This indicates that top ATP players were generally more dominant and consistent than their WTA counterparts during this time.
 
 Players with less than 30 appearances:
-
 
 | Group  | n | Mean | Variance |
 | ------------- | ------------- | ------------- | ------------- |
 | WTA  | 1199 (167 players) | 0.4062 | 0.2414 |
 | ATP  | 772 (109 players) | 0.4262 | 0.2449 |
-
 
 For players with fewer than 30 appearances, the difference between tours was insignificant (p ≈ 0.38). Both tours exhibited similar upset frequencies, highlighting that the disparity in overall upset rates was largely driven by the consistency of the most frequently competing players.
 
@@ -172,7 +164,7 @@ Match formats also play a crucial role in shaping these trends. Best-of-three-se
 
 Despite this difference, the overall upset frequencies for both tours are comparable. This highlights the WTA’s ability to perform at a high level despite facing format challenges, emphasizing that its perceived inconsistency may be overstated.
 
-### Match Surface
+## Match Surface Analysis
 
 It is well known amongst the tennis community that the surface that a match is played on can have a large effect on a player's performance. While a fast surface like grass courts favor large servers and big hitters, a slower surface like clay favors fast movers who can slide around on the surface and get to the ball quicker. Hard court stands somewhere in between these two in terms of speed. Carpet courts were even faster than grass courts, making matches more volatile and rewarding aggressive, high-risk strategies. However, since 2018 carpet courts have been completely erased from the professional circuit, citing high injury risk as the chief contributor to the decision.
 
@@ -190,7 +182,7 @@ This analysis emphasizes how different playing surfaces contribute to upset rate
 
 ## Conclusions and Future Research
 
-My research and analysis provides many implications and insights into certain phenomena in professional tennis. First, 
+My research and analysis provides many implications and insights into certain phenomena in professional tennis.
 
 As a result of these results, I assert that there is insufficient evidence that the top seeds on the WTA tour perform worse than the ATP tours' top seeds from 2000-2024. Our analysis would be greatly enhanced by the addition of best of five set format for the Grand Slams on the WTA tour so we can have a fairer comparison. This fundamental difference limits our ability to compare the two accurately. Whether or not the WTA does adopt this best of five set format, I believe it is inaccurate and often unproductive to spread this narrative about the WTA players without proper research or basis of fact to back up the claim.
 
