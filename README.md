@@ -2,7 +2,7 @@
 
 ## Background and Project Overview
 
-In professional tennis, an "upset" is when a player that is expected to defeat their opponent easily ends up losing to them. A few notable examples of this are Roger Federer's loss to Sergiy Stakhovsky in Wimbledon 2013, Martina Navratilova's loss to Kathleen Horvath in the French Open 1983, and Rafael Nadal's loss to Robin Soderling in the French Open 2009. Every tournament one can expect to see at least one upset, if not a few. 
+In professional tennis, an "upset" is when a player that is expected to defeat their opponent easily ends up losing the match. A few notable examples of this are Roger Federer's loss to Sergiy Stakhovsky in Wimbledon 2013, Martina Navratilova's loss to Kathleen Horvath in the French Open 1983, and Rafael Nadal's loss to Robin Soderling in the French Open 2009. Every tournament one can expect to see at least one upset, if not a few. 
 
 All of the examples of upsets that I just mentioned occurred during a Grand Slam, which is the highest value of professional tournament (2000 points granted to the winner's ranking). Other tournament values include 250s, 500s, and 1000s, whose value corresponds to the amount of points the winner receives. The Olympic Games, which do not currently grant points to the winner, are played every four years. There are also the "Finals", where the top ranked player at the end of the year play a tournament amongst themselves for upwards of 1500 ranking points. Typically, the Grand Slam and 1000 level tournaments have every healthy player trying to play them, whereas the others have a weaker entry list (fewer highly ranked players play them). The top 8/16/32 players (depending on the tournament value) in a tournament by ranking are called "seeds", and are usually granted a favorable draw, meaning they are positioned in the draw (or bracket) away from the other seeds and would not have to face another seed until the later rounds of the tournament.
 
@@ -116,7 +116,7 @@ Conversely, if we look at only the Grand Slam data, we observe the following ups
 | ATP  | 1584  | 0.2235 | 0.1736 |
 
 
-Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p = 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. Intuitively, the shorter best-of-3 format in WTA Grand Slams would be expected to make upsets more likely, as a lower-ranked player needs to win only two sets rather than three. However, the data does not support this hypothesis statistically.
+Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p ≈ 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. Intuitively, the shorter best-of-3 format in WTA Grand Slams would be expected to make upsets more likely, as a lower-ranked player needs to win only two sets rather than three. However, the data does not support this hypothesis statistically.
 
 ### Trends over Time
 
@@ -124,37 +124,73 @@ Although the means are nearly 3% different, with the WTA having a mean of 0.2513
 <img width="711" alt="Image 5" src="https://github.com/user-attachments/assets/0cbe60de-d5bf-4022-a41f-72b3ae653188" />
 
 
-This image visualizes the average upset frequencies each year for both tours. From 2000-2008, we observe that the ATP's upset rate was consistently higher than the WTA's. Over this period, the ATP's average upset frequency was approximately 36.86% compared to the WTA's 26.93%, a difference of almost 10 percentage points. After this period, it seems that the WTA's upset frequency has been higher than the ATP on average (37.04% vs 31.17% from 2009-2024). The reason for this shift is unclear, but it could have to do with the emergence of the "Big 3" on the ATP tour: Novak Djokovic, Roger Federer, and Rafael Nadal. These three were consistently dominant starting around the time of the shift, winning 38 out of 47 consecutive Grand Slams from 2009 to 2020. Andy Murray, another dominant ATP player during this time, won three grand slams and is often grouped with the Big 3 to form the "Big 4".
+This image visualizes the average upset frequencies each year for both tours, revealing notable trends over time. The time period between 2009 and 2020 is particularly significant, not only because the WTA's overall upset frequency was higher than the ATP's but also because this era saw increasing rhetoric about the perceived inconsistency of the WTA tour. Here is the data for that time period:
 
-To put it into perspective, if we consider the time period 2009-2020 and only the 1000 and Grand Slam level tournaments, we observe the following:
 
-\# of Unique Top 3 Seeds:
-   - ATP: 13
-   - WTA: 22
+| Group  | n | Mean | Variance |
+| ------------- | ------------- | ------------- | ------------- |
+| WTA  | 3211  | 0.3637 | 0.2315 |
+| ATP  | 3028  | 0.3015 | 0.2107 |
 
-\# of Unique Top 2 Seeds:
-   - ATP: 6
-   - WTA: 19
 
-\# of Unique 1 Seeds:
-   - ATP: 4
-   - WTA: 11
+The WTA's average upset frequency of 36.37% was significantly higher than the ATP's 30.15% (p ≈ 1.8 × 10-7), suggesting that ATP seeds were more consistent during this period. However, more information is revealed through deeper analysis of the data. By dividing players into two groups based on their total appearances (>= 30 and < 30), we uncover more detailed insights
 
-From this, it is clear that the very top seeds for the ATP were unusually dominant during this period. It is my belief that both tours go through periods of strength and weakness, which may end up becoming clear as we continue to collect more data. 
+Players with 30 or more appearances:
 
-Furthermore, the data above does not tell the whole story. We already have seen that best of three set matches attract more upsets, and the highest valued tournament (Grand Slam) is played using best of three for WTA and best of five for ATP. Therefore, the entirety of the WTA ranking points comes from best of three set matches whereas a significant chunk of the ATP ranking points come from the best of five set matches, meaning the rankings for the ATP should be more representative of where the player actually stands amongst the crowd. Since we observe that the overall upset frequenecy is approximately the same for both tours despite this fact, this actually points in favor of the WTA's ability to overcome the limiting format to perform.
+| Group  | n | Mean | Variance |
+| ------------- | ------------- | ------------- | ------------- |
+| WTA  | 2012 (31 players) | 0.3385 | 0.2240 |
+| ATP  | 2256 (30 players) | 0.2589 | 0.1919 |
+
+
+For players with 30 or more appearances, the ATP’s upset frequency (25.89%) was significantly lower than the WTA’s (33.85%) (p ≈ 1.8 × 10-7). This indicates that top ATP players were generally more dominant and consistent than their WTA counterparts during this time.
+
+Players with less than 30 appearances:
+
+
+| Group  | n | Mean | Variance |
+| ------------- | ------------- | ------------- | ------------- |
+| WTA  | 1199 (167 players) | 0.4062 | 0.2414 |
+| ATP  | 772 (109 players) | 0.4262 | 0.2449 |
+
+
+For players with fewer than 30 appearances, the difference between tours was insignificant (p ≈ 0.38). Both tours exhibited similar upset frequencies, highlighting that the disparity in overall upset rates was largely driven by the consistency of the most frequently competing players.
+
+#### Impact of Top Players
+
+The dominant performance of the 30 or so players with the most appearances on both tours significantly influenced the overall trends. On the ATP side, the "Big 4" — Novak Djokovic, Roger Federer, Rafael Nadal, and Andy Murray — were particularly dominant. These players had upset rates ranging from 19% to 23% and collectively won 41 of the 47 Grand Slam titles during this period. In contrast, the WTA lacked similarly dominant figures, with a more evenly distributed competitive field.
+
+To illustrate this dominance further, consider the number of unique seeds at 1000 and Grand Slam level tournaments between 2009 and 2020:
+
+   - **Unique Top 3 Seeds**: ATP: 13, WTA: 22
+   - **Unique Top 2 Seeds**: ATP: 6, WTA: 19
+   - **Unique No. 1 Seeds**: ATP: 4, WTA: 11
+
+This data emphasizes the exceptional consistency of the ATP’s top players to keep their ranking, while the WTA’s top seeds experienced greater variability.
+
+Match formats also play a crucial role in shaping these trends. Best-of-three-set matches are more prone to upsets than best-of-five-set matches, and this structural difference influences the tours’ ranking systems. WTA rankings are entirely based on best-of-three-set matches, while ATP rankings include points from best-of-five-set matches at Grand Slams. Consequently, ATP rankings may better reflect players’ true standings, while WTA players are faced with more variability due to the format.
+
+Despite this difference, the overall upset frequencies for both tours are comparable. This highlights the WTA’s ability to perform at a high level despite facing format challenges, emphasizing that its perceived inconsistency may be overstated.
 
 ### Match Surface
 
-It is well known amongst the tennis community that the surface that a match is played on can have a large effect on players. While a fast surface like grass courts favor large servers and big hitters, a slower surface like clay favors fast movers who can slide around on the surface and get to the ball quicker. It is important to notice that hard courts are the most common surface for a pro tournament to be held on (image 1) and so therefore a player's ranking may be more indicative of their ability to play on hard courts over anything else. Regardless, image 2 demonstrates the upset frequencies on each of the four surfaces (note that carpet surfaces are not used in any professional tennis tournaments as of 2024).
+It is well known amongst the tennis community that the surface that a match is played on can have a large effect on a player's performance. While a fast surface like grass courts favor large servers and big hitters, a slower surface like clay favors fast movers who can slide around on the surface and get to the ball quicker. Hard court stands somewhere in between these two in terms of speed. Carpet courts were even faster than grass courts, making matches more volatile and rewarding aggressive, high-risk strategies. However, since 2018 carpet courts have been completely erased from the professional circuit, citing high injury risk as the chief contributor to the decision.
+
+Before looking at upset frequencies for the different surfaces, it is important to note that each court is not used equally, meaning that some surfaces are used more than others. Specifically, tournaments are played on hard courts over half of the time, and then clay courts another ~30% of the time. Grass courts make up the rest of the modern day pro circuit, as carpet courts are no longer used professionally.
 
 <img width="221" alt="Image 6" src="https://github.com/user-attachments/assets/55f8169a-5c8c-4c1e-a945-d0cfe00feb62" />  
 
+Since hard courts are the most common surface for a pro tournament to be held on, one expects that a player's ranking may be more indicative of their ability to play on hard courts over anything else. Accordingly, we might expect the upset frequency on hard courts to be lower. Hard courts provide a more neutral playing field in terms of speed compared to the fast grass courts and the slow clay courts. We can visualize the upset frequencies on each of the four surfaces below.
+
 <img width="271" alt="Image 4" src="https://github.com/user-attachments/assets/540e1836-8047-4484-81b0-3cd842e6dc28" />  
 
-It is clear that upsets occur most frequently on carpet courts. With the current possibilities for court surface in the professional circuit, clay courts have the greatest upset frequency, at 36%, compared to grass courts at 34% and then hard courts at 32%. The difference in means between clay and hard courts is statistically significant (p ≈ 0.0003).
+With the exception of the now defunct carpet courts, clay courts have the greatest upset frequency at 36%, compared to grass courts at 34% and then hard courts at 32%. This intuitively makes sense because of the clay surface rewarding players with high endurance while neutralizing power advantages that normally prevail on other surfaces. The difference in means between clay courts and hard/grass courts is statistically significant (p ≈ 0.0008). This statistical difference reinforces the idea that clay courts level the playing field, rewarding stamina and movement over the sheer power that typically prevails on other surfaces.
 
-## Conclusions and future research
+This analysis emphasizes how different playing surfaces contribute to upset rates. It also explores how rankings, while reflective of a player's overall performance, may not fully capture their ability to succeed to all surfaces. Clay courts, in particular, continue to challenge even the highest-ranked players, demonstrating the advantage of a diverse skill set in professional tennis.
+
+## Conclusions and Future Research
+
+My research and analysis provides many implications and insights into certain phenomena in professional tennis. First, 
 
 As a result of these results, I assert that there is insufficient evidence that the top seeds on the WTA tour perform worse than the ATP tours' top seeds from 2000-2024. Our analysis would be greatly enhanced by the addition of best of five set format for the Grand Slams on the WTA tour so we can have a fairer comparison. This fundamental difference limits our ability to compare the two accurately. Whether or not the WTA does adopt this best of five set format, I believe it is inaccurate and often unproductive to spread this narrative about the WTA players without proper research or basis of fact to back up the claim.
 
