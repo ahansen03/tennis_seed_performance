@@ -10,7 +10,7 @@ In professional tennis, an "upset" is when a player that is expected to defeat t
 
 All of the examples of upsets that I just mentioned occurred during a Grand Slam, which is the highest value of professional tournament (2000 points granted to the winner's ranking). Other tournament values include 250s, 500s, and 1000s, whose value corresponds to the amount of points the winner receives. The Olympic Games, which do not currently grant points to the winner, are played every four years. There are also the "Finals", where the top ranked player at the end of the year play a tournament amongst themselves for upwards of 1500 ranking points. Typically, the Grand Slam and 1000 level tournaments have every healthy player trying to play them, whereas the others have a weaker entry list (fewer highly ranked players play them). The top 8/16/32 players (depending on the tournament value) in a tournament by ranking are called "seeds", and are usually granted a favorable draw, meaning they are positioned in the draw (or bracket) away from the other seeds and would not have to face another seed until the later rounds of the tournament.
 
-The professional tennis circuit is divided into two "tours": the WTA (or women's) tour and the ATP (or men's) tour. The main difference between the tours in terms of format is that the ATP tour plays best of five sets for all matches in a Grand Slam, whereas every other match is a best of three sets format on both tours. This means that in a Grand Slam on the ATP tour, a player has to win three sets to win a match rather than the standard two. Otherwise, the two tours play many of the same tournaments, with the same tournament values, and a very similar schedule.
+The professional tennis circuit is divided into two "tours": the WTA (or women's) tour and the ATP (or men's) tour. The main difference between the tours in terms of format is that the ATP tour plays best-of-five sets for all matches in a Grand Slam, whereas every other match is a best-of-three sets format on both tours. This means that in a Grand Slam on the ATP tour, a player has to win three sets to win a match rather than the standard two. Otherwise, the two tours play many of the same tournaments, with the same tournament values, and a very similar schedule.
 
 ### Motivation nad Purpose
 
@@ -51,11 +51,15 @@ To provide additional insights, I added a player appearances column which repres
 
 Classifying tournaments as Grand Slam, Olympics, or Finals was straightforward. It is worth noting that determining whether a tournament was a 250, 500, or 1000-level required slightly more subjectivity. For this, I referenced both the approximate amount of points granted to the winner of the tournament, the relative frequency of each kind of these tournaments, and the caliber of player that typically signed up for those tournaments.
 
-## ATP vs WTA Analysis
+## Analysis Introduction
 
 I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. There are additional visuals and filters on there that I consider interesting for exploration. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). 
 
 I used Welch's t-test for the statistical significance tests, as the sample sizes and variances were often quite different between the groups. The p-values I provide represent the probability of obtaining results as extreme as or more extreme than our observed data, assuming the null hypothesis (that the two measures are the same) is true. Using the standard significance level α = 0.05, I fail to reject the null hypothesis if the p-value is greater than 0.05. Conversely, if the p-value is less than 0.05, I reject the null hypothesis and assert that the two measures are significantly different.
+
+Finally, I will often refer to best-of-five/three sets format as BO5/BO3 for enhanced readability.
+
+## ATP vs WTA Analysis
 
 Our data can be summarized as follows:
 
@@ -93,7 +97,7 @@ As a result, we cannot make the claim that the two tours perform differently in 
 | Best of 5  | 1584  | 0.2235 | 0.1736 |
 
 
-At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), the average upset frequencies between matches that are a best of 3 vs best of 5 set formats are different. In our sample, best of 3 set matches have approximately a 35% upset rate, almost 13 percentage points higher than the best of 5 set matches, which is at approximately 22%. To compare how the tours do in best of three set matches, we will look at the difference in upset frequency outside of the Grand Slams, which is where the only best of five set matches are played.
+At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), the average upset frequencies between matches that are a BO3 vs BO5 set formats are different. In our sample, BO3 matches have ~35% upset rate, almost 13 percentage points higher than the BO5 matches, which is at ~22%. To compare how the tours do in BO3 matches, we will look at the difference in upset frequency outside of the Grand Slams, which is where the only BO5 matches are played.
 
 ### Tournament Value
 
@@ -115,7 +119,7 @@ Conversely, if we look at only the Grand Slam data, we observe the following ups
 | WTA  | 1584  | 0.2513 | 0.1882 |
 | ATP  | 1584  | 0.2235 | 0.1736 |
 
-Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p ≈ 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. Intuitively, the shorter best-of-3 format in WTA Grand Slams would be expected to make upsets more likely, as a lower-ranked player needs to win only two sets rather than three. However, the data does not support this hypothesis statistically.
+Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p ≈ 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. Intuitively, the shorter BO3 format in WTA Grand Slams would be expected to make upsets more likely, as a lower-ranked player needs to win only two sets rather than three. However, the data does not support this hypothesis statistically.
 
 ### Trends over Time
 
@@ -160,7 +164,7 @@ To illustrate this dominance further, consider the number of unique seeds at 100
 
 This data emphasizes the exceptional consistency of the ATP’s top players to keep their ranking, while the WTA’s top seeds experienced greater variability.
 
-Match formats also play a crucial role in shaping these trends. Best-of-three-set matches are more prone to upsets than best-of-five-set matches, and this structural difference influences the tours’ ranking systems. WTA rankings are entirely based on best-of-three-set matches, while ATP rankings include points from best-of-five-set matches at Grand Slams. Consequently, ATP rankings may better reflect players’ true standings, while WTA players are faced with more variability due to the format.
+Match formats also play a crucial role in shaping these trends. BO3 matches are more prone to upsets than BO5 matches, and this structural difference influences the tours’ ranking systems. WTA rankings are entirely based on BO3 matches, while ATP rankings are highly impacted by Grand Slam performance, which is BO5 format. Consequently, ATP rankings may better reflect players’ true standings, while WTA players are faced with more variability due to the format.
 
 Despite this difference, the overall upset frequencies for both tours are comparable. This highlights the WTA’s ability to perform at a high level despite facing format challenges, emphasizing that its perceived inconsistency may be overstated.
 
@@ -182,10 +186,10 @@ This analysis emphasizes how different playing surfaces contribute to upset rate
 
 ## Conclusions and Future Research
 
-My research and analysis provides many implications and insights into certain phenomena in professional tennis.
+This analysis questions the narrative that WTA players are more prone to upsets than their ATP counterparts. The data shows a statistically insignificant difference in average upset frequencies between the ATP and WTA tours, casting doubt on the idea that WTA players are inherently less consistent. The BO5 format has a significant effect on reducing upset frequency compared to the BO3 format. Despite this, we found no significant difference in upset frequency at the Grand Slam level, where the ATP uses the BO5 format, and the WTA uses the BO3 format.
 
-As a result of these results, I assert that there is insufficient evidence that the top seeds on the WTA tour perform worse than the ATP tours' top seeds from 2000-2024. Our analysis would be greatly enhanced by the addition of best of five set format for the Grand Slams on the WTA tour so we can have a fairer comparison. This fundamental difference limits our ability to compare the two accurately. Whether or not the WTA does adopt this best of five set format, I believe it is inaccurate and often unproductive to spread this narrative about the WTA players without proper research or basis of fact to back up the claim.
+Looking at historical trends, the WTA had a lower upset frequency than the ATP at the turn of the millennium. The period where the ATP consistently led the WTA in lower upset rates seems heavily influenced by the dominance of a few top players, creating a wide gap between the elite and the rest of the field. In contrast, the WTA had a more level playing field, where dominance was less concentrated. Additionally, differences in playing surfaces and match formats likely have a larger effect on upset frequency than whether the players are men or women.
 
-I am confident that this data can be used to train a model to predict the performance of upsettable seeds. This is something I would definitely be interested in exploring in the future.
+I conclude that there is insufficient evidence to support the claim that WTA top seeds perform worse than ATP top seeds from 2000 to 2024. A fairer comparison would require introducing a BO5 format for WTA Grand Slams, which would eliminate this fundamental difference in match structure. Despite the current disparity, WTA top seeds often overcome these differences and show comparable performance to ATP top seeds. Ultimately, it’s inaccurate and unproductive to spread narratives about WTA players being more inconsistent without substantial evidence to back those claims.
 
-I plan to update this data at the end of each year’s tennis circuit.
+This dataset also presents opportunities to explore predictive modeling for identifying factors that make top seeds more prone to upsets. This is something I would be very interested in pursuing in the future. Incorporating variables like player fatigue, injuries, and surface-specific performance could further enhance the analysis. As mentioned before, access to historical betting odds would also  enhance our analysis. I also plan to update this dataset at the end of each year’s tennis circuit to keep these insights relevant and expand on this work.
