@@ -31,7 +31,7 @@ These links will all be referenced throughout my report, but they are here as we
    3. [Google Colaboratory File](https://colab.research.google.com/drive/1GCSkMTTcY_qCbacul9bb1TSKv7E0boAz?usp=sharing): Documentation and intermediate steps of the analysis process.
    4. [Expanded Data Table](https://docs.google.com/spreadsheets/d/1ADziKA-sanMPxB8ABH7TXf9HVaVAK3V8XUj0JIXK_uM/edit?usp=sharing): Our filtered dataset with additional columns, including upset values and player appearances for enhanced analysis.
    5. [Histogram Data Table](https://docs.google.com/spreadsheets/d/1OJNte-aFmfc5PyOiFCanwF82LV0MM0FprKp13VLqOy8/edit?usp=sharing): A simplified table formatted for histogram creation in Power BI, with one line per player.
-   6. [Power BI Dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d): An interactive dashboard visualizing the analysis results.
+   6. [Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOTllMzVlODEtZTViOC00OGY5LTkwMmEtOTZkOTg5MmQ4ZjhhIiwidCI6IjhiMWY3NWQyLWIzZTktNGIzZC1hOWYyLTBiNWZhYzQ1OGE4ZCIsImMiOjN9): An interactive dashboard visualizing the analysis results.
 
 ## Data Sources + Collection Method
 
@@ -55,7 +55,7 @@ Classifying tournaments as Grand Slam, Olympics, or Finals was straightforward. 
 
 ## Analysis Introduction
 
-I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=ebd90410-c30f-43b7-8f37-77e73fdd126f&autoAuth=true&ctid=8b1f75d2-b3e9-4b3d-a9f2-0b5fac458a8d) that I created and will be referring to for much of this section. There are additional visuals and filters on there that I consider interesting for exploration. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). 
+I highly recommend exploring the [interactive Power BI dashboard](https://app.powerbi.com/view?r=eyJrIjoiOTllMzVlODEtZTViOC00OGY5LTkwMmEtOTZkOTg5MmQ4ZjhhIiwidCI6IjhiMWY3NWQyLWIzZTktNGIzZC1hOWYyLTBiNWZhYzQ1OGE4ZCIsImMiOjN9) that I created and will be referring to for much of this section. There are additional visuals and filters on there that I consider interesting for exploration. The blue and orange colors represent the ATP and WTA tours respectively (note that the colors for the surface visuals represent the surface values). 
 
 I used Welch's t-test for the statistical significance tests, as the sample sizes and variances were often quite different between the groups. The p-values I provide represent the probability of obtaining results as extreme as or more extreme than our observed data, assuming the null hypothesis (that the two measures are the same) is true. Using the standard significance level α = 0.05, I would fail to reject the null hypothesis if the p-value is greater than 0.05 (there is more than a 5% probability of observing our values based on the null hypothesis). Conversely, if the p-value is less than 0.05 (less than a 5% probability), I reject the null hypothesis and assert that the two measures are significantly different.
 
