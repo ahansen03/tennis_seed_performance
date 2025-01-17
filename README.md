@@ -85,7 +85,7 @@ With 10+ Appearances:
 | ATP  | 6631  | 0.3276 | 0.2203 |
 
 
-Looking at players with 10+ appearances allows us to compare the performance of seeds who played a significant number of tournaments as a seed, as including the many seeds with few appearances would give us large bars at simple fractions (0, 1, 1/2, 1/4, 3/4, etc.), and deafen the underlying distribution that I aim to highlight. This gives us a better sense of how the top players in both tours performed. Regardless, the difference in average upset frequency between the ATP and WTA tours in both tables is statistically insignificant (p ≈ 0.91 and 0.58, respectively).
+Looking at players with 10+ appearances allows us to compare the performance of seeds who played a significant number of tournaments as a seed. Since each player counts as 1 observation for the histograms regardless of player appearances, including the many seeds with few appearances would give us large bars at simple fractions (0, 1, 1/2, 1/4, 3/4, etc.). I aim to highlight the underlying distribution, as seen in the image. This gives us a better sense of how the top players in both tours performed. Regardless, the difference in average upset frequency between the ATP and WTA tours in both tables is statistically insignificant (p ≈ 0.91 and 0.58, respectively).
 
 As a result, we cannot make the claim that the two tours perform differently in terms of overall average upset frequency. Furthermore, we can observe from the histograms and tables that the upset frequency variances are approximately equal for both tours. This all culminates in the fact that we observe virtually identical distributions for both tours. This already gives us evidence against the claim that the WTA tour is susceptible to more upsets than the ATP tour, but there are some more interesting conclusions to be found when we break this down even further.
 
@@ -99,9 +99,9 @@ As a result, we cannot make the claim that the two tours perform differently in 
 | Best of 5  | 1584  | 0.2235 | 0.1736 |
 
 
-At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), the average upset frequencies between matches that are a BO3 vs BO5 set formats are different. In our sample, BO3 matches have ~35% upset rate, almost 13 percentage points higher than the BO5 matches, which is at ~22%. To compare how the tours do in BO3 matches, we will look at the difference in upset frequency outside of the Grand Slams, which is where the only BO5 matches are played.
+At a statistically significant level (p ≈ 3.3 × 10<sup>-28</sup>), BO3 vs BO5 set formats produce different upset frequencies. In our sample, BO3 matches have ~35% upset rate, almost 13 percentage points higher than the BO5 matches, which is at ~22%. This matches our expectations, as it is easier for a lower ranked player to win two sets against a higher ranked player rather than to win three sets. Furthermore, the BO# matches have more variance, indicating that consistencies fluctuate more than they do in BO5 matches. To compare how the tours do in BO3 matches, we will look at the difference in upset frequency outside of the Grand Slams (where the only BO5 matches are played).
 
-### Tournament Value
+### Grand Slams vs Others
 
 <img width="427" alt="Image 2" src="https://github.com/user-attachments/assets/9ccaf3f2-e188-48a5-b22c-533b1f28c48a" />
 
@@ -112,7 +112,7 @@ If we look at only the non-Grand Slam data, we observe the following upset frequ
 | WTA  | 5026  | 0.3613 | 0.2308 |
 | ATP  | 5458  | 0.3684 | 0.2327 |
 
-The difference between the means is insignificant (p ≈ 0.45), meaning there is no strong evidence to suggest that upset frequencies differ significantly between the seeds in both the WTA and ATP tours outside of Grand Slams.
+The difference between the means is insignificant (p ≈ 0.45) and only ~0.71%, so there is no evidence to suggest that upset frequencies differ significantly between the seeds in both the WTA and ATP tours outside of Grand Slams.
 
 Conversely, if we look at only the Grand Slam data, we observe the following upset frequencies for both tours:
 
@@ -121,7 +121,7 @@ Conversely, if we look at only the Grand Slam data, we observe the following ups
 | WTA  | 1584  | 0.2513 | 0.1882 |
 | ATP  | 1584  | 0.2235 | 0.1736 |
 
-Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p ≈ 0.06). With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. Intuitively, the shorter BO3 format in WTA Grand Slams would be expected to make upsets more likely, as a lower-ranked player needs to win only two sets rather than three. However, the data does not support this hypothesis statistically.
+Although the means are nearly 3% different, with the WTA having a mean of 0.2513 and the ATP 0.2235, the difference between the means is statistically insignificant (p ≈ 0.06). As we saw in the above analysis, the BO3 format in WTA Grand Slams should make upsets more likely in Grand Slams. With our current data we are unable to make the assertion that the seed in both tours perform differently at the Grand Slam level. 
 
 ### Trends over Time
 
@@ -152,7 +152,7 @@ Players with less than 30 appearances:
 | WTA  | 1199 (167 players) | 0.4062 | 0.2414 |
 | ATP  | 772 (109 players) | 0.4262 | 0.2449 |
 
-For players with fewer than 30 appearances, the difference between tours was insignificant (p ≈ 0.38). Both tours exhibited similar upset frequencies, highlighting that the disparity in overall upset rates was largely driven by the consistency of the most frequently competing players.
+For players with fewer than 30 appearances, the difference between tours was insignificant (p ≈ 0.38), with the ATP tour even having a ~2% higher rate. This highlights that the disparity in overall upset rates was largely driven by the consistency of the most frequently competing players.
 
 #### Impact of Top Players
 
@@ -182,7 +182,7 @@ Since hard courts are the most common surface for a pro tournament to be held on
 
 <img width="271" alt="Image 4" src="https://github.com/user-attachments/assets/540e1836-8047-4484-81b0-3cd842e6dc28" />  
 
-With the exception of the now defunct carpet courts, clay courts have the greatest upset frequency at 36%, compared to grass courts at 34% and then hard courts at 32%. This intuitively makes sense because of the clay surface rewarding players with high endurance while neutralizing power advantages that normally prevail on other surfaces. The difference in means between clay courts and hard/grass courts is statistically significant (p ≈ 0.0008). This statistical difference reinforces the idea that clay courts level the playing field, rewarding stamina and movement over the sheer power that typically prevails on other surfaces.
+With the exception of the now defunct carpet courts, clay courts have the greatest upset frequency at ~36%, compared to grass courts at ~34% and then hard courts at ~32%. This intuitively makes sense because of the clay surface rewarding players with high endurance while neutralizing power advantages that normally prevail on other surfaces. The difference in means between clay courts and hard/grass courts is statistically significant (p ≈ 0.0008). This statistical difference reinforces the idea that clay courts level the playing field, rewarding stamina and movement over the sheer power that typically prevails on other surfaces.
 
 This analysis emphasizes how different playing surfaces contribute to upset rates. It also explores how rankings, while reflective of a player's overall performance, may not fully capture their ability to succeed to all surfaces. Clay courts, in particular, continue to challenge even the highest-ranked players, demonstrating the advantage of a diverse skill set in professional tennis.
 
